@@ -1,7 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 
-urls = ['https://ambuda.org/texts/raghuvamsham/1', 'https://ambuda.org/texts/raghuvamsham/2']
+url_file = 'urls.txt'
+
+with open(url_file, 'r', encoding='utf-8') as file:
+    urls = (file.read()).split('\n')    
 
 def extract_tags(url, tag_name, output_file):
     response = requests.get(url)
